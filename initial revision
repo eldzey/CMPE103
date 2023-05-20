@@ -1,0 +1,111 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        // Initialize variables
+        int numOfProduct = 0;
+        double productCost = 0;
+        double sellingPrice = 0;
+        
+        double totalExpenses = productCost * numOfProduct;
+        double totalSales = numOfProduct * sellingPrice;
+        double totalIncome = totalExpenses - totalSales;
+        
+        while (true) {
+            Console.WriteLine("-------------------------------------- ");
+            Console.WriteLine("Choose a product to compute sales. ");
+            Console.WriteLine("Enter 1: Fries ");
+            Console.WriteLine("Enter 2: Potato Roll ");
+            Console.WriteLine("Enter 3: Cheese Stick ");
+            int choice = int.Parse(Console.ReadLine());
+            
+            switch (choice)
+            {
+                case 1: 
+                Console.WriteLine("----------Fries----------");
+                Console.Write("Enter the number of product: ");
+                numOfProduct = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the cost of the product: ");
+                productCost = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the selling price: ");
+                sellingPrice = Convert.ToInt32(Console.ReadLine());
+        
+                    // Calculate expenses, sales and income
+                    totalExpenses += numOfProduct * productCost;
+                    totalSales += numOfProduct * sellingPrice;
+                    totalIncome = totalSales - totalIncome;
+                    // Output the results
+                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
+                    Console.WriteLine("Total Revenue: Php " + totalSales);
+                    Console.WriteLine("Total Profit: Php " + totalIncome);
+                    if (totalSales > totalExpenses)
+                    Console.WriteLine("Congratulations! You have earned net income. ");
+                    else
+                    {
+                        Console.WriteLine("Sorry, this product sales results to a loss. ");
+                    }
+                    break;
+                    
+                case 2:
+                Console.WriteLine("----------Potato Roll----------");
+                Console.Write("Enter the number of product: ");
+                numOfProduct = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the cost of the product: ");
+                productCost = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter the selling price: ");
+                sellingPrice = Convert.ToInt32(Console.ReadLine());
+                    
+                    // Calculate expenses, sales and income
+                    totalExpenses += numOfProduct * productCost;
+                    totalSales += numOfProduct * sellingPrice;
+                    totalIncome = totalSales - totalIncome;
+                    
+                    // Output the results
+                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
+                    Console.WriteLine("Total Revenue: Php " + totalSales);
+                    Console.WriteLine("Total Profit: Php " + totalIncome);
+                    if (totalSales > totalExpenses)
+                    Console.WriteLine("Congratulations! You have earned net income. ");
+                    else
+                    {
+                        Console.WriteLine("Sorry, this product sales results to a loss. ");
+                    }
+                    break;
+                    
+                case 3:
+                Console.WriteLine("----------Cheese Stick---------");
+                    Console.Write("Enter the number of product: ");
+                    numOfProduct = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Enter the cost of the product: ");
+                    productCost = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Enter the selling price: ");
+                    sellingPrice = Convert.ToInt32(Console.ReadLine());
+                    
+                    // Calculate expenses, sales and income
+                    totalExpenses += numOfProduct * productCost;
+                    totalSales += numOfProduct * sellingPrice;
+                    totalIncome = totalSales - totalIncome;
+                    
+                    // Output the results
+                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
+                    Console.WriteLine("Total Revenue: Php " + totalSales);
+                    Console.WriteLine("Total Profit: Php " + totalIncome);
+                    if (totalSales > totalExpenses)
+                    Console.WriteLine("Congratulations! You have earned net income. ");
+                    else
+                    {
+                        Console.WriteLine("Sorry, this product sales results to a loss. ");
+                    }
+                    return;
+                    
+                default:
+                Console.Write("Invalid Input! Please, try again. ");
+                Console.WriteLine("Choose a product to compute sales. ");
+                Console.WriteLine("Enter 1: Fries ");
+                Console.WriteLine("Enter 2: Potato Roll ");
+                Console.WriteLine("Enter 3: Cheese Stick ");
+                break;
+            }
+        }
+    }
+}
