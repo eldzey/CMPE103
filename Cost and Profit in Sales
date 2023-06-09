@@ -23,7 +23,7 @@ class Program
             Console.WriteLine("Enter 1: Fries ");
             Console.WriteLine("Enter 2: Potato Roll ");
             Console.WriteLine("Enter 3: Cheese Stick ");
-            Console.WriteLine("Enter 4 to arrange the order of profits. ");
+            Console.WriteLine("Enter 4 to arrange the order of income. ");
             int choice = int.Parse(Console.ReadLine());
 
             switch (choice)
@@ -45,7 +45,7 @@ class Program
                     // Output the results
                     Console.WriteLine("Total Expenses: Php " + totalExpenses);
                     Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
+                    Console.WriteLine("\nTotal Income: Php " + totalIncome);
 
                     if (totalSales > totalExpenses)
                         Console.WriteLine("You have earned net income. ");
@@ -71,7 +71,7 @@ class Program
                     // Output the results
                     Console.WriteLine("Total Expenses: Php " + totalExpenses);
                     Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
+                    Console.WriteLine("\nTotal Income: Php " + totalIncome);
 
                     if (totalSales > totalExpenses)
                         Console.WriteLine("You have earned net income. ");
@@ -97,7 +97,7 @@ class Program
                     // Output the results
                     Console.WriteLine("Total Expenses: Php " + totalExpenses);
                     Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
+                    Console.WriteLine("\nTotal Income: Php " + totalIncome);
 
                     if (totalSales > totalExpenses)
                         Console.WriteLine("You have earned net income. ");
@@ -112,7 +112,7 @@ class Program
                     Console.WriteLine("Enter 1: Fries ");
                     Console.WriteLine("Enter 2: Potato Roll ");
                     Console.WriteLine("Enter 3: Cheese Stick ");
-                    Console.WriteLine("Enter 4 to arrange the order of profits. ");
+                    Console.WriteLine("Enter 4 to arrange the order of income. ");
                     break;
 
                 case 4:
