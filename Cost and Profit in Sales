@@ -5,17 +5,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Initialize variables
-        int numOfProduct = 0;
-        double productCost = 0;
-        double sellingPrice = 0;
-
-        double totalExpenses = 0;
-        double totalSales = 0;
-        double totalIncome = 0;
-
-        List<string> income = new List<string>();
-
         while (true)
         {
             Console.WriteLine("\n-------------------------------------- ");
@@ -23,117 +12,82 @@ class Program
             Console.WriteLine("Enter 1: Fries ");
             Console.WriteLine("Enter 2: Potato Roll ");
             Console.WriteLine("Enter 3: Cheese Stick ");
-            Console.WriteLine("Enter 4 to arrange the order of profits. ");
+            Console.WriteLine("Enter 4 to arrange the order of income. ");
             int choice = int.Parse(Console.ReadLine());
 
-            switch (choice)
+            if (choice == 4)
             {
-                case 1:
-                    Console.WriteLine("\n----------------FRIES----------------");
-                    Console.Write("Enter the number of product: ");
-                    numOfProduct = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the cost of the product: ");
-                    productCost = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the selling price: ");
-                    sellingPrice = Convert.ToInt32(Console.ReadLine());
-
-                    // Calculate expenses, sales, and income
-                    totalExpenses = numOfProduct * productCost;
-                    totalSales = numOfProduct * sellingPrice;
-                    totalIncome = totalSales - totalExpenses;
-
-                    // Output the results
-                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
-                    Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
-
-                    if (totalSales > totalExpenses)
-                        Console.WriteLine("You have earned net income. ");
-                    else
-                        Console.WriteLine("This product sales result in a loss. ");
-
-                    break;
-
-                case 2:
-                    Console.WriteLine("\n--------------POTATO ROLL--------------");
-                    Console.Write("Enter the number of product: ");
-                    numOfProduct = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the cost of the product: ");
-                    productCost = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the selling price: ");
-                    sellingPrice = Convert.ToInt32(Console.ReadLine());
-
-                    // Calculate expenses, sales, and income
-                    totalExpenses = numOfProduct * productCost;
-                    totalSales = numOfProduct * sellingPrice;
-                    totalIncome = totalSales - totalExpenses;
-
-                    // Output the results
-                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
-                    Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
-
-                    if (totalSales > totalExpenses)
-                        Console.WriteLine("You have earned net income. ");
-                    else
-                        Console.WriteLine("This product sales result in a loss. ");
-
-                    break;
-
-                case 3:
-                    Console.WriteLine("\n-------------CHEESE STICK------------");
-                    Console.Write("Enter the number of product: ");
-                    numOfProduct = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the cost of the product: ");
-                    productCost = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("Enter the selling price: ");
-                    sellingPrice = Convert.ToInt32(Console.ReadLine());
-
-                    // Calculate expenses, sales, and income
-                    totalExpenses = numOfProduct * productCost;
-                    totalSales = numOfProduct * sellingPrice;
-                    totalIncome = totalSales - totalExpenses;
-
-                    // Output the results
-                    Console.WriteLine("Total Expenses: Php " + totalExpenses);
-                    Console.WriteLine("Total Revenue: Php " + totalSales);
-                    Console.WriteLine("\nTotal Profit: Php " + totalIncome);
-
-                    if (totalSales > totalExpenses)
-                        Console.WriteLine("You have earned net income. ");
-                    else
-                        Console.WriteLine("This product sales result in a loss. ");
-
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid Input! Please, try again. ");
-                    break;
-
-                case 4:
-                    Console.WriteLine("\nSuccessfully left the product choices. ");
-                    
-                    // Calculating total income and sorting income list
-                    Console.WriteLine("Type the value of total income and name of product then type 'done' to arrange the order of profits. ");
-                    string incomeInput = Console.ReadLine();
-
-                    while (incomeInput != "done")
-                    {
-                        income.Add(incomeInput);
-                        incomeInput = Console.ReadLine();
-                    }
-
-                    Console.WriteLine("\nCongratulations, this is the list of products from most profitable to the least profitable. ");
-                    Console.WriteLine("Order based on profit: ");
-                    income.Reverse();
-
-                    foreach (string item in income)
-                    {
-                        Console.WriteLine(item);
-                    }
-
-                    return;
+                Console.WriteLine("\nSuccessfully left the product choices. ");
+                ArrangeOrderOfIncome();
+                return;
             }
+
+            CalculateProductSales(choice);
+        }
+    }
+
+    static void CalculateProductSales(int choice)
+    {
+        Console.WriteLine(GetProductName(choice));
+
+        Console.Write("Enter the number of product: ");
+        int numOfProduct = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Enter the cost of the product: ");
+        double productCost = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Enter the selling price: ");
+        double sellingPrice = Convert.ToDouble(Console.ReadLine());
+
+        // Calculate expenses, sales, and income
+        double totalExpenses = numOfProduct * productCost;
+        double totalSales = numOfProduct * sellingPrice;
+        double totalIncome = totalSales - totalExpenses;
+
+        // Output the results
+        Console.WriteLine("Total Expenses: Php " + totalExpenses);
+        Console.WriteLine("Total Revenue: Php " + totalSales);
+        Console.WriteLine("\nTotal Profit: Php " + totalIncome);
+
+        if (totalSales > totalExpenses)
+            Console.WriteLine("You have earned net income. ");
+        else
+            Console.WriteLine("This product sales result in a loss. ");
+    }
+
+    static string GetProductName(int choice)
+    {
+        switch (choice)
+        {
+            case 1:
+                return "\n----------------FRIES----------------";
+            case 2:
+                return "\n--------------POTATO ROLL--------------";
+            case 3:
+                return "\n-------------CHEESE STICK------------";
+            default:
+                return "Invalid Input! Please, try again. ";
+        }
+    }
+
+    static void ArrangeOrderOfIncome()
+    {
+        List<string> income = new List<string>();
+
+        Console.WriteLine("Type the value of total income and name of product then type 'done' to arrange the order of profits. ");
+        Console.WriteLine("*Use NUMBER and SMALL LETTER only* ");
+        string incomeInput = Console.ReadLine();
+
+        while (incomeInput != "done")
+        {
+            income.Add(incomeInput);
+            incomeInput = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nCongratulations, this is the list of products from most profitable to the least profitable. ");
+        income.Reverse();
+
+        foreach (string item in income)
+        {
+            Console.WriteLine(item);
         }
     }
 }
